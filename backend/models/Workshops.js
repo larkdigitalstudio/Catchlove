@@ -53,12 +53,6 @@ const workshopSchema = new Schema(
       lowercase: true, // Makes email lowercase for consistency
       match: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, // Validates email format
     },
-    username: {
-      type: String,
-      required: true,
-      unique: true, // Ensures username is unique
-      trim: true, // Trims extra spaces from username
-    },
     password: {
       type: String,
       required: true, // Password should be hashed before saving to the database

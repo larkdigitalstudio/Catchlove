@@ -22,3 +22,5 @@ rad.json
 TestResults.xml
 #ignore node modules
 node_modules/
+#ignore .env file
+.env

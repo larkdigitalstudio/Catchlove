@@ -33,7 +33,6 @@ const customerSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      required: true,
       match: /^[0-9]{10}$/,  // Example validation for Australian phone numbers (10 digits)
     },
     email: {
@@ -42,12 +41,6 @@ const customerSchema = new Schema(
       unique: true,  // Ensures the email is unique
       lowercase: true,  // Converts email to lowercase
       match: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, // Email validation regex
-    },
-    username: {
-      type: String,
-      required: true,
-      unique: true,  // Ensures unique username
-      trim: true, // Removes extra spaces
     },
     password: {
       type: String,
@@ -68,6 +61,10 @@ const customerSchema = new Schema(
         },
       },
     ],
+    signedInPreviously: {
+      type: Boolean,
+      default: false,  // Defaults to false
+    },
     createdAt: {
       type: Date,
       default: Date.now, // Automatically sets the creation date
